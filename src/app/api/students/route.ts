@@ -4,8 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { requireRole, publicUserSelect } from "@/lib/auth";
 import { createStudentSchema } from "@/lib/validation";
 
-// GET /api/students : ADMIN et ENSEIGNANT voient les étudiants,
-// ETUDIANT voit uniquement ses propres données.
+// Student
 export async function GET() {
   const auth = await requireRole(["ADMIN", "ENSEIGNANT", "ETUDIANT"]);
   if (!auth.ok) return auth.response;
@@ -26,7 +25,7 @@ export async function GET() {
   return NextResponse.json(students);
 }
 
-// POST /api/students : création réservée à ADMIN.
+// Admin
 export async function POST(req: Request) {
   const auth = await requireRole(["ADMIN"]);
   if (!auth.ok) return auth.response;

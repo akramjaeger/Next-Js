@@ -134,7 +134,7 @@ export default function StudentsClient({ role }: { role: string }) {
                     className="mt-2 flex gap-2"
                   >
                     <input name="name" defaultValue={s.name} required className="rounded border p-1" />
-                    <button className="rounded bg-gray-200 px-2 py-1">Modifier</button>
+                    <button className="rounded bg-green-600 px-2 py-1 text-white">Modifier</button>
                     {role === "ADMIN" && (
                       <button
                         type="button"
